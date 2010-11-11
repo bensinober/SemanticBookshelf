@@ -1,0 +1,63 @@
+body {
+	color: whitesmoke;
+	background: url('images/shakespearebooks.jpg') ;
+}
+h1 A:link, h1 A:visited {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+div.wrapper{
+    width: 1200px;
+}
+
+div.header {
+    padding: 10px;
+    width: 800px;
+    height: 100px;
+    overflow: hidden;
+}
+
+div.left_box{
+color: black;
+    float: left;
+    padding: 10px;
+    width: 80%;
+}
+
+div.right_box{
+background: #bfadad;
+color: black;
+    float: right;
+    padding: 10px;
+    width: 15%;
+}
+
+div.footer{
+    clear:both;
+    padding: 10px;
+    width: 800px;
+}
+
+form, textarea, table {
+font: normal 11px verdana
+}
+
+table.pretty {
+  margin: 1em 1em 1em 2em;
+  background: whitesmoke;
+  color: black;
+  border-collapse: collapse;
+}
+table.pretty th, table.pretty td {
+  border: 1px silver solid;
+  padding: 0.2em;
+}
+table.pretty th {
+  background: gainsboro;
+  text-align: left;
+}
+table.pretty caption {
+  margin-left: inherit;
+  margin-right: inherit;
+}

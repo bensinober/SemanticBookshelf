@@ -1,0 +1,39 @@
+# Semantic BookShelf
+#
+# A php isbn lookup and RDF conversion bookshelf project
+#
+# WHAT DOES IT DO? 
+# lookup titles by isbn in worldcat, bibsys, isbndb, librarything and openlibrary
+# Results are parsed into turtle RDF (semantic format) and inserted into RDF store
+# RDF store is used for book lookup and editing
+#
+# Many thanks to Benjamin Nowack for providing open source ARC2 RDF library toolkit
+# (http://arc.semsol.org/)
+# 
+# Suggestions for improval, uses, and corrections, please don't hesitate to contact: 
+# Creator: Benjamin Rokseth
+# E-mail: benjamin@deichman.no
+# Date: 2010-11-10
+
+
+REQUIREMENTS:
+Working LAMP stack or similar (webserver, mysql, php)
+ 
+INSTALL:
+ 1. copy entire content to web folder
+ 2. use included arc.tar.gz or obtain newest ARC2 RDF library from http://arc.semsol.org/ and extract into subfolder "arc"
+ 3. create mysql database and user, and grant proper rights to user
+ 4. edit config.php to reflect user, password and database settings created in mysql above : 
+  'db_user' => 'DBUSER',
+  'db_pwd' => 'DBPASSWORD',
+  'db_name' => 'DBNAME',
+ 5. publish webfolder and access at http://hostname/index.php
+
+FILES
+README			- this file
+index.php  		- main library catalogue, browse or search catalogue, edit/delete triples 
+isbnlookup.php 	- isbn lookup tool, insert isbn, get parsed RDF result and insert into mysql RDF store
+endpoint.php 	- sparql endpoint for catalogue, settings from config.php
+config.php		- database and endpoint settings
+arc.tar.gz		- RDF library framework, extract into folder 'arc'
+style.css		- simple stylesheet
