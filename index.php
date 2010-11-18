@@ -396,9 +396,24 @@ if (!$store->getErrors()) {
 
 /* NB ! Check if deletetriples has any 'o' keys before running query, otherwise query deletes all! */
 /* need to extract objects first */
-$objects = extract($deletetriples['o']);
+//$objects = extract($deletetriples['o']);
 //print_r($objects);
-if (array_key_exists('o', $deletetriples)) { 	
+function array_key_exists_recursive($needle, $haystack)
+{
+    $result = array_key_exists($needle, $haystack);
+    if ($result)
+        return $result;
+    foreach ($haystack as $v)
+    {
+        if (is_array($v) || is_object($v))
+            $result = array_key_exists_recursive($needle, $v);
+        if ($result)
+        return $result;
+    }
+    return $result;
+}
+	
+if (array_key_exists_recursive('o', $deletetriples)) {
 	print 'slettede tripler:';
 	print	'<table class="pretty">
 	<th>antall</th><th>delete_time</th><th>index_update</th>
