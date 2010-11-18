@@ -16,8 +16,8 @@ font: normal 11px verdana;
 header ('Content-type: text/html; charset=utf-8');
 
 // Access keys (obtain one by creating a free account at: https://isbndb.com/account/create.html, and enter it here. It will not work without the access key.)
-$isbndbKey = "LFAYPFOW";
-$librarythingKey = "92d5a9e621daa86ef17727d23bfe0fa7";
+$isbndbKey = "INSERT ISBNDB KEY";
+$librarythingKey = "INSERT LIBRARYTHING KEY";
 
 // Get Post variables
 
