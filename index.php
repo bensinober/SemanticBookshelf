@@ -302,9 +302,10 @@ $totalrows = count($triples);
 		print "<td><input type=\"hidden\"  name=\"edittriples[" . $i . "][o type]\" value=\"" . $triple['o type'] . "\">". $triple['o type'] ."</td>\n";
 		print "<td><input type=\"hidden\"  name=\"edittriples[" . $i . "][o datatype]\" value=\"" . $triple['o datatype'] . "\">". $triple['o datatype'] ."</td>\n";
 
-		/* print out delete checkbox, with o type as hidden */
+		/* print out delete checkbox, with 'o type' as included hidden value to separate literal and uri */
 		print "<td><input type=\"checkbox\" name=\"deletetriples[" . $i . "][o]\" value=\"". $triple['o'] . "\"></td></tr>";
 		print "<td><input type=\"hidden\" name=\"deletetriples[" . $i . "][o type]\" value=\"". $triple['o type'] . "\"></td></tr>";
+		
 		
 		$i = $i +1;  /* increment counter for array */
 		} /* end foreach */
@@ -393,13 +394,18 @@ if (!$store->getErrors()) {
 
 /* DELETED TRIPLES */
 
+/* NB ! Check if deletetriples has any 'o' keys before running query, otherwise query deletes all! */
+/* need to extract objects first */
+$objects = extract($deletetriples['o']);
+//print_r($objects);
+if (array_key_exists('o', $deletetriples)) { 	
 	print 'slettede tripler:';
 	print	'<table class="pretty">
 	<th>antall</th><th>delete_time</th><th>index_update</th>
 	<tr><td></td></tr>
 	';
 	$removequery = "DELETE FROM <http://bensinober.sleepingwolf.net/biblioteket/> { "; 
-	
+
 	foreach ($deletetriples as $deletetriple) {
 		/* if checked box, then object != "" */
 		if (!$deletetriple['o'] == "") {
@@ -427,6 +433,7 @@ if (!$store->getErrors()) {
 		}
 
 	print '</table>';
+} /* END IF ARRAY KEY 'o' EXISTS RUN DELETEQUERY */
 
 /* PRINT OUT MODIFIED BOOK */	
 $q = "SELECT * WHERE { <" . $uri . "> ?p ?o }";

@@ -27,7 +27,7 @@ INSTALL:
   'db_user' => 'DBUSER',
   'db_pwd' => 'DBPASSWORD',
   'db_name' => 'DBNAME',
- 5. publish webfolder and access at http://hostname/index.php
+ 5. publish webfolder and access at http://hostname/webpath/index.php
 
 FILES
 README			- this file
