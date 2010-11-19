@@ -558,7 +558,7 @@ font: normal 11px verdana
   </tr>
  </table>
 
-<form method="post" action="bokhylla.php" name="the_form">
+<form method="post" action="isbnlookup.php" name="the_form">
 <b>[ISBN]:</b><br>
 <input type="text" size="18" value="" name="isbnlookup">
 <input type="submit" value="send inn" name="send"><br/>
