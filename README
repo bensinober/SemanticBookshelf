@@ -28,12 +28,13 @@ INSTALL:
   'db_pwd' => 'DBPASSWORD',
   'db_name' => 'DBNAME',
  5. publish webfolder and access at http://hostname/webpath/index.php
+ 6. librarything and worldcat require api keys. Get these and insert into isbnlookup.php
 
 FILES
 README			- this file
 index.php  		- main library catalogue, browse or search catalogue, edit/delete triples 
-isbnlookup.php 	- isbn lookup tool, insert isbn, get parsed RDF result and insert into mysql RDF store
-endpoint.php 	- sparql endpoint for catalogue, settings from config.php
+isbnlookup.php 		- isbn lookup tool, insert isbn, get parsed RDF result and insert into mysql RDF store
+endpoint.php 		- sparql endpoint for catalogue, settings from config.php
 config.php		- database and endpoint settings
 arc.tar.gz		- RDF library framework, extract into folder 'arc'
 style.css		- simple stylesheet
