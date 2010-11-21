@@ -571,7 +571,7 @@ font: normal 11px verdana
 </td>
 
 <td>
-<form method="post" action="bokhylla.php">
+<form method="post" action="isbnlookup.php">
 <textarea name="content" cols="80" rows="20" ><?php echo $q; ?></textarea>
 <input type="submit" value="lagre tripler i ARC" name="save">
 
