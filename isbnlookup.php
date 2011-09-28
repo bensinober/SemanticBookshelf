@@ -16,8 +16,8 @@ font: normal 11px verdana;
 header ('Content-type: text/html; charset=utf-8');
 
 // Access keys (obtain one by creating a free account at: https://isbndb.com/account/create.html, and enter it here. It will not work without the access key.)
-$isbndbKey = "INSERT ISBNDB KEY";
-$librarythingKey = "INSERT LIBRARYTHING KEY";
+$isbndbKey = "LFAYPFOW";
+$librarythingKey = "92d5a9e621daa86ef17727d23bfe0fa7";
 
 // Get Post variables
 
@@ -207,9 +207,9 @@ if ($isbnlookup):
 	$c = curl_init();
 	$headers = array("Accept:application/rdf+xml");
 	curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($c, CURLOPT_URL, "http://sru.bibsys.no/services/sru?operation=searchRetrieve&version=1.1&query=isbn=%22" . $isbnlookup . "%22&recordSchema=dc");
-	curl_setopt($c, CURLOPT_HTTPHEADER, $headers);
-	curl_setopt($c, CURLOPT_POST, true);
+	curl_setopt($c, CURLOPT_URL, "http://sru.bibsys.no/search/biblio?operation=searchRetrieve&version=1.2&query=isbn=%22" . $isbnlookup . "%22&recordSchema=dc");
+#	curl_setopt($c, CURLOPT_HTTPHEADER, $headers);
+#	curl_setopt($c, CURLOPT_POST, true);
 	$query = curl_exec($c);
 	echo curl_error($c);
 	curl_close($c);
@@ -566,7 +566,7 @@ font: normal 11px verdana
 <input type="checkbox" value="librarything" name="librarything" checked>librarything</input>
 <input type="checkbox" value="isbndb" name="isbndb" checked>isbndb</input>
 <input type="checkbox" value="bibsys" name="bibsys" checked>bibsys</input>
-<input type="checkbox" value="openlibrary" name="openlibrary" checked>openlibrary</input>
+<input type="checkbox" value="openlibrary" name="openlibrary">openlibrary</input>
 </form>
 </td>
 
